@@ -1,5 +1,5 @@
 import React from 'react'
-import CheckIcon from '../../icons/CheckIcon'
+import { BsCheck2 } from 'react-icons/bs'
 function Checkbox({ name = '', checked = false, onClick = () => {}, children }) {
     return (
         <div className='flex items-start gap-x-5'>
@@ -11,7 +11,7 @@ function Checkbox({ name = '', checked = false, onClick = () => {}, children }) 
             >
                 <input type='checkbox' name={name} className='hidden' />
                 <span className={`${!checked && 'opacity-0 invisible'}`}>
-                    <CheckIcon />
+                    <BsCheck2 fontSize='18px' />
                 </span>
             </div>
             {children && (

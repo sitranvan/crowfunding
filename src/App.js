@@ -1,15 +1,26 @@
-import React, { Suspense } from 'react'
+import React, { Fragment, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
-
-const SignUpPage = React.lazy(() => import('./pages/SignUpPage'))
-const SignInPage = React.lazy(() => import('./pages/SignInPage'))
-
+import { v4 as uuidV4 } from 'uuid'
+import MainLayout from './layouts/MainLayout'
+import { publicRouters } from './routers'
 function App() {
     return (
         <Suspense>
             <Routes>
-                <Route path='sign-up' element={<SignUpPage />} />
-                <Route path='sign-in' element={<SignInPage />} />
+                {publicRouters.map(({ component: Page, layout, path }) => {
+                    let Layout = layout === null ? Fragment : MainLayout
+                    return (
+                        <Route
+                            key={uuidV4()}
+                            path={path}
+                            element={
+                                <Layout>
+                                    <Page />
+                                </Layout>
+                            }
+                        />
+                    )
+                })}
             </Routes>
         </Suspense>
     )

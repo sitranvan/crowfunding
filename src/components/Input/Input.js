@@ -19,11 +19,13 @@ function Input({
     return (
         <div className='relative'>
             <input
-                className={`${className} w-full py-4 px-6 border  rounded-xl text-sm font-medium text-text1 dark:text-white placeholder:text-text4 dark:placeholder:text-text2 dark:bg-transparent  ${
-                    error.length > 0 ? 'border-error' : 'border-strock dark:border-darkStroke'
+                className={`${className} w-full py-4 px-6 border  rounded-xl text-sm  text-text1 dark:text-white placeholder:text-text4 dark:placeholder:text-text2 dark:bg-transparent  ${
+                    error.length > 0
+                        ? 'border-error text-error placeholder:text-error'
+                        : 'border-strock dark:border-darkStroke'
                 }`}
                 type={type}
-                placeholder={placeholder}
+                placeholder={error.length <= 0 ? placeholder : error}
                 id={name}
                 {...field}
                 {...props}
