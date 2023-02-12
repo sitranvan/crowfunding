@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CampaignAuhor({
+function CamAuthor({
     avatar = 'https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dHJhdmVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=2000&q=60',
     name = '',
 }) {
@@ -14,4 +14,4 @@ function CampaignAuhor({
     )
 }
 
-export default CampaignAuhor
+export default CamAuthor

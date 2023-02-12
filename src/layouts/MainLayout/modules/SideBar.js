@@ -1,13 +1,15 @@
 import React from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import CampaignIcon from '../../icons/CampaignIcon'
-import DashboardIcon from '../../icons/DashboardIcon'
-import PaymentIcon from '../../icons/PaymentIcon'
-import WithDrawIcon from '../../icons/WithDrawIcon'
-import ProfileIcon from '../../icons/ProfileIcon'
-import LogoutIcon from '../../icons/LogoutIcon'
-import DarkModeIcon from '../../icons/DarkModeIcon'
 
+import {
+    CampaignIcon,
+    DashboardIcon,
+    PaymentIcon,
+    WithDrawIcon,
+    ProfileIcon,
+    LogoutIcon,
+    DarkModeIcon,
+} from '../../../components/Icons'
 const sideBarLinks = [
     {
         icon: <DashboardIcon />,

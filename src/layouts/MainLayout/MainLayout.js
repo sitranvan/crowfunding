@@ -1,7 +1,7 @@
 import React from 'react'
 import Overlay from '../../components/Overlay'
-import Header from '../../modules/MainLayout/Header'
-import SideBar from '../../modules/MainLayout/SideBar'
+import Header from './modules/Header'
+import SideBar from './modules/SideBar'
 
 function MainLayout({ children }) {
     return (

@@ -1,10 +1,10 @@
 import React from 'react'
-import CampaignCate from './CampaignCate'
-import CampaignDesc from './CampaignDesc'
-import CampaignMeta from './CampaignMeta'
-import CampaignTitle from './CampaignTitle'
+import CamCategory from './CamCategory'
+import CamDesc from './CamDesc'
+import CamMeta from './CamMeta'
+import CampTitle from './CamTitle'
 
-function CampaignFeature() {
+function CamFeature() {
     return (
         <div className='flex items-center gap-x-8 w-full max-w-[1048px] mb-8'>
             <img
@@ -13,24 +13,22 @@ function CampaignFeature() {
                 className='h-[280px] flex-1 rounded-2xl'
             />
             <div className='flex-1 max-w-[430px] '>
-                <CampaignCate className='mb-4 text-sm'>Archiecture</CampaignCate>
-                <CampaignTitle className='font-bold text-xl mb-4'>
-                    Remake - We Make Archiecture exhibition{' '}
-                </CampaignTitle>
-                <CampaignDesc className='text-sm mb-6'>
+                <CamCategory className='mb-4 text-sm'>Archiecture</CamCategory>
+                <CampTitle className='font-bold text-xl mb-4'>Remake - We Make Archiecture exhibition </CampTitle>
+                <CamDesc className='text-sm mb-6'>
                     Remake - We Make Archiecture exhibition lorem ipsum dolor sit amet consectetur adipisicing elit.{' '}
-                </CampaignDesc>
+                </CamDesc>
                 <div className='w-full h-[5px] rounded-full bg-[#eeeeee] mb-6'>
                     <div className='h-full w-1/2 bg-primary rounded-full'></div>
                 </div>
                 <div className='flex items-start justify-between gap-x-5'>
-                    <CampaignMeta size='big' amount='$2,000' text='Raised of $1,900' />
-                    <CampaignMeta size='big' amount='173' text='Total backers' />
-                    <CampaignMeta size='big' amount='173' text='Total backers' />
+                    <CamMeta size='big' amount='$2,000' text='Raised of $1,900' />
+                    <CamMeta size='big' amount='173' text='Total backers' />
+                    <CamMeta size='big' amount='173' text='Total backers' />
                 </div>
             </div>
         </div>
     )
 }
 
-export default CampaignFeature
+export default CamFeature

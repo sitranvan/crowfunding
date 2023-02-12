@@ -3,13 +3,13 @@ import React, { useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import ReactQuill, { Quill } from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
-import Dropdown from '../../components/Dropdown'
-import FormGroup from '../../components/FormGroup'
-import FormRow from '../../components/FormRow'
-import Input from '../../components/Input'
-import Label from '../../components/Label'
-import Textarea from '../../components/Textarea/Textarea'
-import Button from '../../components/Button'
+import Dropdown from '../../../components/Dropdown'
+import FormGroup from '../../../components/FormGroup'
+import FormRow from '../../../components/FormRow'
+import Input from '../../../components/Input'
+import Label from '../../../components/Label'
+import Textarea from '../../../components/Textarea/Textarea'
+import Button from '../../../components/Button'
 import { RiMoneyDollarBoxLine } from 'react-icons/ri'
 // import axios from 'axios'
 Quill.register('modules/imageUploader', ImageUploader)
@@ -106,10 +106,10 @@ function AddNewCampaign() {
                     <FormGroup className='mt-5'>
                         <Label>Amount Prefilled</Label>
                         <Input control={control} name='prefilled' placeholder='Amount Prefilled' />
-                        <p className='text-text3 text-sm'>
+                        <div className='text-text3 text-sm'>
                             It will help fill amount box by click, place each amount by comma, ex:{' '}
                             <p className='font-medium'>10,20,30,40</p>
-                        </p>
+                        </div>
                     </FormGroup>
                     <FormGroup className='mt-5'>
                         <Label>Video</Label>

@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { BsPlusLg } from 'react-icons/bs'
-import Heading from '../../components/Heading'
-import GridLayout from '../../layouts/GridLayout/GridLayout'
-import CampaignFeature from '../../modules/Home/CampaignFeature'
 import Button from '../../components/Button'
+import Heading from '../../components/Heading'
+import CamFeature from '../../components/Pages/CamFeature'
+import GridLayout from '../../layouts/GridLayout'
 function CampaignPage() {
     return (
         <Fragment>
@@ -29,10 +29,10 @@ function CampaignPage() {
             </div>
             <Heading number={4}>Your campaign</Heading>
             <GridLayout col={1} gap={10}>
-                <CampaignFeature />
-                <CampaignFeature />
-                <CampaignFeature />
-                <CampaignFeature />
+                <CamFeature />
+                <CamFeature />
+                <CamFeature />
+                <CamFeature />
             </GridLayout>
             <div className='text-center mb-10 mt-5'>
                 <Button className='mx-auto px-8' outline icon={<BsPlusLg fontSize='8px' />}>

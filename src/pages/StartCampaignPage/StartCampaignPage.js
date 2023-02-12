@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import AddNewCampaign from '../../modules/StartCampaign/AddNewCampaign'
+import AddNewCampaign from './modules/AddNewCampaign'
 
 function StartCampaignPage() {
     return (

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CampaignMeta({ amount = '', text = '', size = 'small' }) {
+function CamMeta({ amount = '', text = '', size = 'small' }) {
     return (
         <div className='flex flex-col gap-y-1'>
             <h4 className={`text-text1  font-semibold ${size === 'small' ? 'text-[15px]' : 'text-[18px]'}`}>
@@ -11,4 +11,4 @@ function CampaignMeta({ amount = '', text = '', size = 'small' }) {
     )
 }
 
-export default CampaignMeta
+export default CamMeta

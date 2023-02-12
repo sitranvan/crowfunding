@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import { AiFillStar } from 'react-icons/ai'
-import CampaignCate from '../../modules/Home/CampaignCate'
-import CampaignDesc from '../../modules/Home/CampaignDesc'
-import CampaignMeta from '../../modules/Home/CampaignMeta'
-import CampaignTitle from '../../modules/Home/CampaignTitle'
 import Button from '../../components/Button'
-function Detail() {
+import CamCategory from '../../components/Pages/CamCategory'
+import CamDesc from '../../components/Pages/CamDesc'
+import CamMeta from '../../components/Pages/CamMeta'
+import CampTitle from '../../components/Pages/CamTitle'
+function ViewPage() {
     return (
         <Fragment>
             <div
@@ -22,13 +22,11 @@ function Detail() {
                 </div>
 
                 <div className='flex-1 max-w-[430px] '>
-                    <CampaignCate className='mb-4 text-sm'>Archiecture</CampaignCate>
-                    <CampaignTitle className='font-bold text-xl mb-4'>
-                        Remake - We Make Archiecture exhibition{' '}
-                    </CampaignTitle>
-                    <CampaignDesc className='text-sm '>
+                    <CamCategory className='mb-4 text-sm'>Archiecture</CamCategory>
+                    <CampTitle className='font-bold text-xl mb-4'>Remake - We Make Archiecture exhibition </CampTitle>
+                    <CamDesc className='text-sm '>
                         Remake - We Make Archiecture exhibition lorem ipsum dolor sit amet consectetur adipisicing elit.{' '}
-                    </CampaignDesc>
+                    </CamDesc>
                     <div className='flex items-center gap-x-5'>
                         <img src='/camera.png' alt='' className='w-[60px] h-[60px] rounded-full object-cover' />
                         <div className='flex-flex-col flex-1 my-7'>
@@ -53,9 +51,9 @@ function Detail() {
                         <div className='h-full w-1/2 bg-primary rounded-full'></div>
                     </div>
                     <div className='flex items-start justify-between gap-x-5 mb-4'>
-                        <CampaignMeta size='big' amount='$2,000' text='Raised of $1,900' />
-                        <CampaignMeta size='big' amount='173' text='Total backers' />
-                        <CampaignMeta size='big' amount='173' text='Total backers' />
+                        <CamMeta size='big' amount='$2,000' text='Raised of $1,900' />
+                        <CamMeta size='big' amount='173' text='Total backers' />
+                        <CamMeta size='big' amount='173' text='Total backers' />
                     </div>
                     <Button className='bg-primary w-full text-white'>Back this project</Button>
                 </div>
@@ -64,4 +62,4 @@ function Detail() {
     )
 }
 
-export default Detail
+export default ViewPage

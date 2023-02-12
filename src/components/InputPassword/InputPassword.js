@@ -1,7 +1,6 @@
 import React from 'react'
 import useToggleValue from '../../hooks/useToggleValue'
-import EyeIcon from '../../icons/EyeIcon'
-import EyeSlashIcon from '../../icons/EyeSlashIcon'
+import { EyeIcon, EyeSlashIcon } from '../../components/Icons'
 import Input from '../Input'
 
 function InputPassword({ control, error }) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BsChevronDown } from 'react-icons/bs'
 import { BiTrendingUp } from 'react-icons/bi'
-import Button from '../../components/Button/Button'
+import Button from '../../../components/Button/Button'
 import Search from './Search'
 
 function Header() {
