@@ -15,12 +15,11 @@ function HomePage() {
             <CamFeature />
 
             <Heading>Popular campaign</Heading>
-            <GridLayout>
-                {Array(4)
-                    .fill(0)
-                    .map((item, index) => (
-                        <CamItem key={index} />
-                    ))}
+            <GridLayout col={4} gap={7}>
+                <CamItem />
+                <CamItem />
+                <CamItem />
+                <CamItem />
             </GridLayout>
         </Fragment>
     )

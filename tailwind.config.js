@@ -14,6 +14,7 @@ module.exports = {
                 text3: '#808191',
                 text4: '#b2b3bd',
                 iconColor: '#a2a2a8',
+                grayF3: '#f3f3f3',
                 white: '#ffffff',
                 whiteSoft: '#fcfbff',
                 graySoft: '#fcfcfc',

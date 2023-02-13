@@ -19,7 +19,9 @@ function Header() {
                     <span>Fundrising for</span>
                     <BsChevronDown className='mb-1' />
                 </div>
-                <Button className='bg-secondary px-6'>Start a campaign</Button>
+                <Button className='bg-secondary px-6' to='/start-campaign'>
+                    Start a campaign
+                </Button>
                 <img srcSet='/logo.png 2x' alt='logo' className='rounded-full object-cover' />
             </div>
         </div>

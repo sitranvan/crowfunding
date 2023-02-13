@@ -28,7 +28,7 @@ function CampaignPage() {
                 </Button>
             </div>
             <Heading number={4}>Your campaign</Heading>
-            <GridLayout col={1} gap={10}>
+            <GridLayout cols1>
                 <CamFeature />
                 <CamFeature />
                 <CamFeature />

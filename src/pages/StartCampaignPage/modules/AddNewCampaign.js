@@ -1,5 +1,5 @@
 import ImageUploader from 'quill-image-uploader'
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import ReactQuill, { Quill } from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
@@ -11,12 +11,17 @@ import Label from '../../../components/Label'
 import Textarea from '../../../components/Textarea/Textarea'
 import Button from '../../../components/Button'
 import { RiMoneyDollarBoxLine } from 'react-icons/ri'
+import useOnChange from '../../../hooks/useOnChange'
+import countryApi from '../../../services/countryApi'
+import { toast } from 'react-toastify'
 // import axios from 'axios'
 Quill.register('modules/imageUploader', ImageUploader)
 
 function AddNewCampaign() {
-    const { handleSubmit, control } = useForm()
+    const { handleSubmit, control, setValue } = useForm()
     const [content, setContent] = useState(null)
+    const [filterCountry, setFilterCountry] = useOnChange(200)
+    const [countries, setCountries] = useState([])
     const handleAddNewCampaign = (data) => {}
 
     const modules = useMemo(
@@ -50,6 +55,24 @@ function AddNewCampaign() {
         }),
         [],
     )
+
+    const handleSelectDropdown = (name, value) => {
+        setValue(name, value)
+    }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                if (!filterCountry) return
+                const response = await countryApi.searchName(filterCountry)
+                setCountries(response.data)
+            } catch (error) {
+                toast.error(error)
+            }
+        }
+        fetchData()
+    }, [filterCountry])
+
     return (
         <div className='bg-white rounded-xl py-10 px-[66px]'>
             <div className='text-center'>
@@ -68,7 +91,9 @@ function AddNewCampaign() {
                         <Dropdown>
                             <Dropdown.Select placeholder='Select the category'></Dropdown.Select>
                             <Dropdown.List>
-                                <Dropdown.Option>Hello</Dropdown.Option>
+                                <Dropdown.Option onClick={() => handleSelectDropdown('category', 'Hello')}>
+                                    Hello
+                                </Dropdown.Option>
                             </Dropdown.List>
                         </Dropdown>
                     </FormGroup>
@@ -132,7 +157,11 @@ function AddNewCampaign() {
                         <Dropdown>
                             <Dropdown.Select placeholder='Select a Counrty'></Dropdown.Select>
                             <Dropdown.List>
-                                <Dropdown.Option>Hello</Dropdown.Option>
+                                <Dropdown.Search placeholder='Search country' onChange={setFilterCountry} />
+                                {countries.length > 0 &&
+                                    countries.map((country) => (
+                                        <Dropdown.Option key={country.name}>{country?.name}</Dropdown.Option>
+                                    ))}
                             </Dropdown.List>
                         </Dropdown>
                     </FormGroup>

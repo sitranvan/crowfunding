@@ -1,14 +1,16 @@
 import React, { Fragment, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuidV4 } from 'uuid'
-import MainLayout from './layouts/MainLayout'
 import { publicRouters } from './routers'
 function App() {
     return (
         <Suspense>
             <Routes>
                 {publicRouters.map(({ component: Page, layout, path }) => {
-                    let Layout = layout === null ? Fragment : MainLayout
+                    let Layout = Fragment
+                    if (layout) {
+                        Layout = layout
+                    }
                     return (
                         <Route
                             key={uuidV4()}
