@@ -7,4 +7,11 @@ const countryRequest = axios.create({
     },
 })
 
-export { countryRequest }
+const crowRequest = axios.create({
+    baseURL: 'http://localhost:3009/api/',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+})
+
+export { countryRequest, crowRequest }

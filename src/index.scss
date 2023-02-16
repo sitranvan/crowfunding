@@ -29,9 +29,6 @@
     @apply border-none font-primary text-sm;
   }
 
-  .ql-container.ql-snow {
-    @apply h-32
-  }
 
   .ql-editor {
     @apply pt-10;
@@ -57,4 +54,59 @@
 
 .scroll-hidden::-webkit-scrollbar {
   display: none;
+}
+
+// Custom datepicker
+body {
+
+  .react-datepicker__input-container {
+    padding: 14px 24px;
+    @apply border border-strock rounded-xl
+  }
+
+  .react-datepicker {
+    @apply border border-strock rounded-xl w-full shadow font-primary pt-2
+  }
+
+  .react-datepicker__day--selected {
+    @apply bg-primary
+  }
+
+  .react-datepicker__day {
+    &:hover {
+      @apply bg-primary bg-opacity-40
+    }
+  }
+
+  .react-datepicker__input-container input {
+    @apply w-full
+  }
+
+  .react-datepicker__month-container {
+    @apply w-[350px];
+  }
+
+  .react-datepicker__day,
+  .react-datepicker__day--weekend,
+  .react-datepicker__day-name {
+    @apply w-10
+  }
+
+  .react-datepicker__day-name {
+    @apply font-medium text-sm
+  }
+
+  .react-datepicker__header {
+    @apply bg-white rounded-xl border-none
+  }
+
+  .react-datepicker__navigation--previous,
+  .react-datepicker__navigation--next,
+  .react-datepicker__current-month {
+    @apply mt-3
+  }
+
+  .react-datepicker__current-month {
+    @apply mb-3
+  }
 }
