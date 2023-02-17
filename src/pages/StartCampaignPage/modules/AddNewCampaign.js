@@ -20,6 +20,7 @@ import Textarea from '../../../components/Textarea/Textarea'
 import useOnChange from '../../../hooks/useOnChange'
 import campaignApi from '../../../services/campaignApi'
 import countryApi from '../../../services/countryApi'
+import uploadApi from '../../../services/uploadApi'
 // import axios from 'axios'
 Quill.register('modules/imageUploader', ImageUploader)
 
@@ -33,7 +34,6 @@ function AddNewCampaign() {
     const [startDate, setStartDate] = useState(new Date())
     const [endDate, setEndDate] = useState(new Date())
     const [countries, setCountries] = useState([])
-
     const getDropdowLabel = (name, defaultLabel) => {
         const value = watch(name) || defaultLabel
         return value
@@ -62,18 +62,9 @@ function AddNewCampaign() {
             imageUploader: {
                 // imgbbAPI
                 upload: async (file) => {
-                    console.log('upload: ~ file', file)
                     const bodyFormData = new FormData()
-
                     bodyFormData.append('image', file)
-                    const response = await axios({
-                        method: 'post',
-                        url: 'https://api.imgbb.com/1/upload?key=f3253304c6ee42d470e02995cc86f48c',
-                        data: bodyFormData,
-                        headers: {
-                            'Content-Type': 'multipart/form-data',
-                        },
-                    })
+                    const response = await uploadApi.upload(bodyFormData)
                     return response.data.data.url
                 },
             },

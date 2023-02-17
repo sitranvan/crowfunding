@@ -14,4 +14,11 @@ const crowRequest = axios.create({
     },
 })
 
-export { countryRequest, crowRequest }
+const uploadRequest = axios.create({
+    baseURL: 'https://api.imgbb.com/1/',
+    headers: {
+        'Content-Type': 'multipart/form-data',
+    },
+})
+
+export { countryRequest, crowRequest, uploadRequest }
