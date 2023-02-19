@@ -47,6 +47,7 @@ app.post('/auth/login', (req, res) => {
     const user = users.find((user) => {
         return user.email === email
     })
+    console.log(user)
     if (!user) return res.sendStatus(401)
     const dbPassword = user.password
     bcrypt.compare(req.body.password, dbPassword, (err, hash) => {

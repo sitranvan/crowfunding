@@ -11,11 +11,13 @@ import Input from '../../components/Input'
 import InputPassword from '../../components/InputPassword'
 import Label from '../../components/Label'
 import AuthLayout from '../../layouts/AuthLayout'
+import { useDispatch } from 'react-redux'
+import { authRegister } from '../../store/auth/authSlice'
 
 const schema = yup
     .object()
     .shape({
-        fullname: yup.string().required('Please enter your Full Name'),
+        name: yup.string().required('Please enter your Full Name'),
         email: yup.string().required('Please enter your Email').email('Invalid email format'),
         password: yup.string().required('Please enter your Password').min(8, 'Password must be at least 8 characters'),
     })
@@ -23,9 +25,11 @@ const schema = yup
 
 function SignUpPage() {
     const [checked, setChecked] = useState(false)
+    const dispatch = useDispatch()
     const {
         handleSubmit,
         control,
+        reset,
         formState: { errors, isSubmitting },
     } = useForm({
         mode: 'onSubmit',
@@ -34,12 +38,9 @@ function SignUpPage() {
 
     // submit sign up form
     const handleSignUp = (data) => {
-        return new Promise((resolver) => {
-            setTimeout(() => {
-                resolver()
-                console.log(data)
-            }, [2000])
-        })
+        console.log(data)
+        dispatch(authRegister(data))
+        reset({})
     }
 
     //  checked checkbox
@@ -61,8 +62,8 @@ function SignUpPage() {
             </p>
             <form onSubmit={handleSubmit(handleSignUp)}>
                 <FormGroup className='flex flex-col gap-y-3'>
-                    <Label htmlFor='fullname'>Full Name *</Label>
-                    <Input control={control} name='fullname' placeholder='Jhon Doe' error={errors.fullname?.message} />
+                    <Label htmlFor='name'>Full Name *</Label>
+                    <Input control={control} name='name' placeholder='Jhon Doe' error={errors.name?.message} />
                 </FormGroup>
                 <FormGroup className='flex flex-col gap-y-3'>
                     <Label htmlFor='email'>Email *</Label>

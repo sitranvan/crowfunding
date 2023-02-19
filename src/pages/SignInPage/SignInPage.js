@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import * as yup from 'yup'
 import Button from '../../components/Button/Button'
@@ -10,6 +11,7 @@ import Input from '../../components/Input'
 import InputPassword from '../../components/InputPassword'
 import Label from '../../components/Label'
 import AuthLayout from '../../layouts/AuthLayout'
+import { authLogin } from '../../store/auth/authSlice'
 
 const schema = yup
     .object()
@@ -19,6 +21,7 @@ const schema = yup
     })
     .required()
 function SignInPage() {
+    const dispatch = useDispatch()
     const {
         handleSubmit,
         control,
@@ -28,12 +31,7 @@ function SignInPage() {
         resolver: yupResolver(schema),
     })
     const handleSignIn = (data) => {
-        return new Promise((resolver) => {
-            setTimeout(() => {
-                resolver()
-                console.log(data)
-            }, [2000])
-        })
+        dispatch(authLogin(data))
     }
 
     return (

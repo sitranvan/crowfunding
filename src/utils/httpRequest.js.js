@@ -21,4 +21,12 @@ const uploadRequest = axios.create({
     },
 })
 
-export { countryRequest, crowRequest, uploadRequest }
+const authRequest = axios.create({
+    baseURL: 'http://localhost:5000',
+    headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache',
+    },
+})
+
+export { countryRequest, crowRequest, uploadRequest, authRequest }
