@@ -4,26 +4,26 @@ import { Route, Routes } from 'react-router-dom'
 import { v4 as uuidV4 } from 'uuid'
 import { publicRouters } from './routers'
 import { authRefreshToken, authUpdateUser } from './store/auth/authSlice'
-import { getToken } from './utils/auth'
+import { getToken, logOut } from './utils/auth'
 function App() {
-    const { user } = useSelector((state) => state.auth)
     const dispatch = useDispatch()
+    const { user } = useSelector((state) => state.auth)
+    console.log('user', user)
     useEffect(() => {
+        const { refresh_token, access_token } = getToken()
         if (user && user.id) {
-            const { access_token } = getToken()
-
             dispatch(
                 authUpdateUser({
-                    user: user,
+                    user,
                     accessToken: access_token,
                 }),
             )
         } else {
-            const { refresh_token } = getToken()
             if (refresh_token) {
                 dispatch(authRefreshToken(refresh_token))
             } else {
-                dispatch(authRefreshToken({}))
+                dispatch(authUpdateUser({}))
+                logOut()
             }
         }
     }, [user, dispatch])

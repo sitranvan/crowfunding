@@ -10,17 +10,20 @@ const authApi = {
         return authRequest.post(url, payload)
     },
     fetchMe: (token) => {
+        if (!token) return
         const url = 'me'
         return authRequest.get(url, {
             headers: {
-                'Content-Type': 'application/json',
+                // backend yêu cầu
                 Authorization: `Bearer ${token}`,
             },
         })
     },
     refreshToken: (token) => {
+        if (!token) return
         const url = 'token'
         return authRequest.post(url, {
+            // backend yêu cầu
             refreshToken: token,
         })
     },

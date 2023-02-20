@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiSearch } from 'react-icons/bi'
 import SearchResult from './SearchResult'
 function Search() {
     const [showSearch, setShowSearch] = useState(false)
+    useEffect(() => {
+        setShowSearch(false)
+    }, [])
     return (
         <div className='relative z-50'>
             <div className='bg-white rounded-full shadow-[rgba(17,12,46,0.15)_0px_48px_100px_0px] p-2 flex items-center '>

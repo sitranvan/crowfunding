@@ -14,7 +14,7 @@ app.use(cors())
 const generateTokens = (payload) => {
     const { id, name } = payload
     const accessToken = jwt.sign({ id, name }, process.env.ACCESS_TOKEN_SECRET, {
-        expiresIn: '5m',
+        expiresIn: '30s',
     })
     const refreshToken = jwt.sign({ id, name }, process.env.REFRESH_TOKEN_SECRET, {
         expiresIn: '48h',
@@ -47,7 +47,6 @@ app.post('/auth/login', (req, res) => {
     const user = users.find((user) => {
         return user.email === email
     })
-    console.log(user)
     if (!user) return res.sendStatus(401)
     const dbPassword = user.password
     bcrypt.compare(req.body.password, dbPassword, (err, hash) => {

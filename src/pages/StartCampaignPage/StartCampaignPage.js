@@ -6,8 +6,9 @@ import AddNewCampaign from './modules/AddNewCampaign'
 function StartCampaignPage() {
     const { user } = useSelector((state) => state.auth)
     const navigate = useNavigate()
-    console.log('user: ', user)
+
     useEffect(() => {
+        // Nếu không có user điều hướng về trang đăng nhập
         if (!user || !user.email) {
             navigate('/sign-in')
         }

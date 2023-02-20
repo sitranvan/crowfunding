@@ -1,8 +1,9 @@
+import { yupResolver } from '@hookform/resolvers/yup'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
 import Button from '../../components/Button/Button'
 import ButtonGoogle from '../../components/ButtonGoogle'
 import Checkbox from '../../components/Checkbox/Checkbox'
@@ -11,7 +12,6 @@ import Input from '../../components/Input'
 import InputPassword from '../../components/InputPassword'
 import Label from '../../components/Label'
 import AuthLayout from '../../layouts/AuthLayout'
-import { useDispatch } from 'react-redux'
 import { authRegister } from '../../store/auth/authSlice'
 
 const schema = yup

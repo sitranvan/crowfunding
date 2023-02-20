@@ -1,6 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react'
-import axios from 'axios'
 import ImageUploader from 'quill-image-uploader'
+import React, { useEffect, useMemo, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useForm } from 'react-hook-form'

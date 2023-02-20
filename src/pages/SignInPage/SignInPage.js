@@ -1,8 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
 import * as yup from 'yup'
 import Button from '../../components/Button/Button'
 import ButtonGoogle from '../../components/ButtonGoogle'
@@ -21,6 +21,8 @@ const schema = yup
     })
     .required()
 function SignInPage() {
+    const { user } = useSelector((state) => state.auth)
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const {
         handleSubmit,
@@ -33,6 +35,12 @@ function SignInPage() {
     const handleSignIn = (data) => {
         dispatch(authLogin(data))
     }
+
+    useEffect(() => {
+        if (user && user.id) {
+            navigate('/')
+        }
+    }, [user, navigate])
 
     return (
         <AuthLayout heading='Wecome Back!'>
