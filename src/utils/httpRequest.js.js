@@ -29,4 +29,10 @@ const authRequest = axios.create({
     },
 })
 
-export { countryRequest, crowRequest, uploadRequest, authRequest }
+const privateAxios = axios.create({
+    baseURL: 'http://localhost:4001',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+})
+export { countryRequest, crowRequest, uploadRequest, authRequest, privateAxios }

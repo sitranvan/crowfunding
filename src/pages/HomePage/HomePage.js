@@ -1,14 +1,23 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import Heading from '../../components/Heading'
 import CamFeature from '../../components/Pages/CamFeature'
 import CamItem from '../../components/Pages/CamItem'
+import usePrivateAxios from '../../hooks/usePrivateAxios'
 import GridLayout from '../../layouts/GridLayout'
-// import Heading from '../../components/Heading'
-// import GridLayout from '../../layouts/GridLayout'
-// import CampaignFeature from '../../modules/Home/CampaignFeature'
-// import CampaignItem from '../../modules/Home/CampaignItem'
 
 function HomePage() {
+    const privateAxios = usePrivateAxios()
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await privateAxios.get('/api/campaigns')
+                console.log('Home page: ', response)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchData()
+    }, [privateAxios])
     return (
         <Fragment>
             <Heading number={4}>You campaign</Heading>
